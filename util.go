@@ -49,6 +49,13 @@ func processFuncOut(funcType reflect.Type) (valOut int, errOut int, n int) {
 		if funcType.Out(1) != errorType {
 			panic("expected error as second return value")
 		}
+	case 3:
+		valOut = 0
+		// valOut = 1
+		errOut = 2
+		if funcType.Out(2) != errorType {
+			panic("expected error as second return value")
+		}
 	default:
 		errstr := fmt.Sprintf("too many return values: %s", funcType)
 		panic(errstr)
